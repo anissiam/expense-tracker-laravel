@@ -15,10 +15,14 @@ use App\Http\Controllers\BudgetInviteController;
 use App\Http\Controllers\BudgetPartnerController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ReportController;
+use App\Http\Controllers\SupabaseAuthController;
 use App\Http\Controllers\VoiceController;
 
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
+// Supabase Auth bridge: frontend signs in via Supabase, then syncs here
+// to create the public.users row and get an API token.
+Route::post('/auth/supabase/sync', [SupabaseAuthController::class, 'sync'])->middleware('throttle:30,1');
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/user/profile', [AuthController::class, 'profile']);

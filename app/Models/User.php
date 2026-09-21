@@ -15,7 +15,7 @@ class User extends Authenticatable
     /** @use HasFactory<UserFactory> */
     use HasApiTokens, HasFactory, Notifiable;
 
-    protected $fillable = ['name', 'email', 'password', 'currency_code', 'monthly_salary_day', 'timezone'];
+    protected $fillable = ['supabase_id', 'name', 'email', 'password', 'currency_code', 'monthly_salary_day', 'timezone'];
 
     protected $hidden = ['password', 'remember_token'];
 
