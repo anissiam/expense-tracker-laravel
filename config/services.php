@@ -37,8 +37,9 @@ return [
 
     'supabase' => [
         'url' => env('SUPABASE_URL', 'http://127.0.0.1:54321'),
-        'anon_key' => env('SUPABASE_ANON_KEY'),
-        'service_role_key' => env('SUPABASE_SERVICE_ROLE_KEY'),
+        'anon_key' => env('SUPABASE_PUBLISHABLE_KEY', env('SUPABASE_ANON_KEY')),
+        'service_role_key' => env('SUPABASE_SECRET_KEY', env('SUPABASE_SERVICE_ROLE_KEY')),
+        'jwks_url' => env('SUPABASE_JWKS_URL'),
     ],
 
 ];
