@@ -17,6 +17,11 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\SupabaseAuthController;
 use App\Http\Controllers\VoiceController;
+use App\Http\Controllers\HealthController;
+
+// Public liveness probe — hit GET /api/health to check if the API is up.
+// (Controller-based so `php artisan route:cache` keeps working on Render.)
+Route::get('/health', HealthController::class);
 
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
