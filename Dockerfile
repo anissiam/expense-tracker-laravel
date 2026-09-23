@@ -1,7 +1,8 @@
 # Production-ready image for Render (also works for local `docker build`).
 # Render injects $PORT (default 10000) and forwards HTTP to it — the
 # entrypoint script binds `php artisan serve` to 0.0.0.0:$PORT.
-FROM php:8.3-cli
+# composer.lock pins Laravel 13.24 + Symfony 8.1, which require PHP >= 8.4.1.
+FROM php:8.4-cli
 
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
