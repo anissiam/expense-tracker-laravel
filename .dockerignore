@@ -1,0 +1,26 @@
+# Keep the Render/Docker build context small and secret-free.
+.git
+.gitignore
+.idea/
+.vscode/
+.cursor/
+node_modules/
+vendor/
+.env
+.env.backup
+.env.production
+auth.json
+storage/logs/*
+storage/framework/cache/*
+storage/framework/sessions/*
+storage/framework/views/*
+bootstrap/cache/*
+public/hot
+public/build
+public/storage
+tests/
+phpunit.xml
+phpunit_output.txt
+*_output.txt
+npm-debug.log
+yarn-error.log
